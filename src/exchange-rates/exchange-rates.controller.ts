@@ -12,4 +12,13 @@ export class ExchangeRatesController {
     ) {
         return this.exchangeRatesService.getLatestRate(base, symbols);
     }
+
+    @Get('historical')
+    async getHistoricalRates(
+        @Query('date') date: string,
+        @Query('base') base: string,
+        @Query('symbols') symbals: string,
+    ) {
+        return this.exchangeRatesService.getHistoricalRate(date, base, symbals)
+    }
 }
